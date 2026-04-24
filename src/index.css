@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nube Tech — Premium Cloud Consultancy Design System
+   Dark futuristic theme with neon blue/purple gradients, glassmorphism. */
+
+@layer base {
+  :root {
+    /* Dark theme as default */
+    --background: 230 35% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 30% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 30% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 100% 62%;
+    --primary-foreground: 230 35% 5%;
+    --primary-glow: 250 95% 70%;
+
+    --secondary: 230 25% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 230 20% 14%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 270 95% 65%;
+    --accent-foreground: 230 35% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 25% 16%;
+    --input: 230 25% 14%;
+    --ring: 250 95% 70%;
+
+    --radius: 0.875rem;
+
+    /* Brand gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 100% 62%) 0%, hsl(270 95% 65%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(217 100% 62% / 0.4), hsl(270 95% 65% / 0.4));
+    --gradient-radial: radial-gradient(ellipse at top, hsl(250 95% 30% / 0.35), transparent 60%);
+    --gradient-mesh:
+      radial-gradient(at 20% 20%, hsl(217 100% 62% / 0.25) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(270 95% 65% / 0.25) 0px, transparent 50%),
+      radial-gradient(at 80% 80%, hsl(250 95% 70% / 0.18) 0px, transparent 50%);
+
+    /* Glassmorphism */
+    --glass-bg: hsl(230 30% 10% / 0.55);
+    --glass-border: hsl(220 40% 80% / 0.08);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(250 95% 70% / 0.35);
+    --shadow-glow-blue: 0 0 50px hsl(217 100% 62% / 0.45);
+    --shadow-card: 0 8px 32px hsl(230 50% 2% / 0.5);
+    --shadow-elegant: 0 20px 60px -20px hsl(250 95% 50% / 0.4);
+
+    /* Transitions */
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 230 30% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 100% 62%;
+    --sidebar-primary-foreground: 230 35% 5%;
+    --sidebar-accent: 230 25% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 230 25% 16%;
+    --sidebar-ring: 250 95% 70%;
+  }
+
+  .light {
+    --background: 220 30% 98%;
+    --foreground: 230 40% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 40% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 40% 8%;
+
+    --primary: 250 90% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 90% 65%;
+
+    --secondary: 220 25% 94%;
+    --secondary-foreground: 230 40% 8%;
+
+    --muted: 220 20% 95%;
+    --muted-foreground: 230 15% 40%;
+
+    --accent: 270 85% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 92%;
+    --ring: 250 90% 58%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 95% 55%) 0%, hsl(270 90% 60%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(217 95% 55% / 0.2), hsl(270 90% 60% / 0.2));
+    --gradient-radial: radial-gradient(ellipse at top, hsl(250 90% 80% / 0.3), transparent 60%);
+    --gradient-mesh:
+      radial-gradient(at 20% 20%, hsl(217 95% 70% / 0.2) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(270 90% 75% / 0.2) 0px, transparent 50%),
+      radial-gradient(at 80% 80%, hsl(250 90% 80% / 0.15) 0px, transparent 50%);
+
+    --glass-bg: hsl(0 0% 100% / 0.65);
+    --glass-border: hsl(230 30% 30% / 0.08);
+
+    --shadow-glow: 0 0 40px hsl(270 85% 60% / 0.25);
+    --shadow-glow-blue: 0 0 50px hsl(217 95% 55% / 0.25);
+    --shadow-card: 0 8px 32px hsl(230 30% 50% / 0.12);
+    --shadow-elegant: 0 20px 60px -20px hsl(250 80% 50% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    -webkit-font-smoothing: antialiased;
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .glow-blue { box-shadow: var(--shadow-glow-blue); }
+  .glow-purple { box-shadow: var(--shadow-glow); }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 80%);
+  }
+}
